@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Documents{% endblock %}
+{% block body %}
+	<!-- Start All Pages -->
+	<div class="all-page-title page-breadcrumb">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>Documents</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End All Pages -->
+	<!-- Start Gallery -->
+	<div class="gallery-box">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<!-- <h2>Documents</h2> -->
+						<p>You can view and download douments in this page!</p>
+					</div>
+				</div>
+			</div>
+			<div class="tz-gallery">
+				<div class="row">
+					{% for document in documents %}
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<div class="card" style="padding: 0.3em;">
+							<h3 class="text-center card-header">{{document.name}}</h3>
+							<!-- <a class="lightbox" href="images/gallery-img-01.jpg">
+								<img class="img-fluid" src="images/gallery-img-01.jpg" alt="Gallery Images">
+							</a> -->
+							<p>{{document.description|truncatewords:35}}</p>
+							<hr>
+							<a href="#">View this item</a>
+							<a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}">Download Now</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Gallery -->
+{% endblock %}
